@@ -2,8 +2,6 @@
 
 namespace PBurggraf\CRC\CRC16;
 
-use PBurggraf\CRC\TableGenerator;
-
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  */
