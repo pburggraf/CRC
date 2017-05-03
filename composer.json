@@ -1,0 +1,27 @@
+{
+  "name": "pburggraf/crc",
+  "description": "Cyclic redundancy checker class",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Philip Burggraf",
+      "email": "philip@pburggraf.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PBurggraf\\CRC\\": "src/PBurggraf/CRC/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PBurggraf\\CRC\\Tests\\": "tests/PBurggraf/CRC/"
+    }
+  },
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.0"
+  }
+}

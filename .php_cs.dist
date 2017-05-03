@@ -1,0 +1,14 @@
+<?php
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@Symfony' => true,
+        'concat_space' => false,
+        'phpdoc_order' => true,
+        'cast_spaces' => true,
+    ])
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+            ->exclude('tests/Fixtures')
+            ->in(__DIR__)
+    );

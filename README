@@ -1,0 +1,22 @@
+# CRC [![Build Status](https://travis-ci.org/pburggraf/CRC.svg?branch=master)](https://travis-ci.org/pburggraf/CRC)
+This is an implementation of the [CRC RevEng Catalogue](http://reveng.sourceforge.net/crc-catalogue/) in PHP 7.x
+
+## How to use
+```PHP
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$crcCalculator = new \PBurggraf\CRC\CRC16\AugCcitt();
+
+var_dump(dechex($crcCalculator->calculate('123456789'))); // string(4) "e5cc"
+```
+
+## Test
+This project uses phpunit to test the validation of license plates.
+
+## Currently implemented
+#### 16bit CRC
+ARC, AUG-CCITT, BUYPASS, CCITT-FALSE, CDMA2000, CMS, DDS-110, DECT-R, DECT-X, DNP, EN-13757, GENIBUS, GSM, LJ1200,
+MAXIM, MCRF4XX, OPENSAFETY-A, OPENSAFETY-B, PROFIBUS, RIELLO, T10-DIF, TELEDISK, TMS37157, USB, CRC-A, KERMIT, MODBUS,
+X-25, XMODEM

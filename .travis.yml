@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+
+sudo: false
+
+matrix:
+    fast_finish: true
+
+script: phpunit
+
+before_script:
+  - composer install
