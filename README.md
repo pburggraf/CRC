@@ -1,4 +1,4 @@
-# CRC [![Build Status](https://travis-ci.org/pburggraf/CRC.svg?branch=master)](https://travis-ci.org/pburggraf/CRC)
+# CRC [![Build Status](https://travis-ci.org/pburggraf/CRC.svg?branch=master)](https://travis-ci.org/pburggraf/CRC) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pburggraf/CRC/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pburggraf/CRC/?branch=master)
 This is an implementation of the [CRC RevEng Catalogue](http://reveng.sourceforge.net/crc-catalogue/) in PHP 7.x
 
 ## How to use

@@ -42,14 +42,14 @@ abstract class AbstractCRC
      *
      * @return int
      */
-    public abstract function calculate(string $buffer): int;
+    abstract public function calculate(string $buffer): int;
 
     /**
      * @param int $polynomial
      *
      * @return array
      */
-    protected abstract function generateTable(int $polynomial): array;
+    abstract protected function generateTable(int $polynomial): array;
 
     /**
      * @param int $binaryInput
