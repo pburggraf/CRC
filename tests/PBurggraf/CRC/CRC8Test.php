@@ -10,70 +10,133 @@ use PHPUnit\Framework\TestCase;
  */
 class CRC8Test extends TestCase
 {
-    protected static $test1to9 = [
+    protected static $tests = [
         [
             'class' => 'CRC8',
-            'result' => 0xf4,
+            'result' => [
+                '123456789' => 0xf4,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Autosar',
-            'result' => 0xdf,
+            'result' => [
+                '123456789' => 0xdf,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Cdma2000',
-            'result' => 0xda,
+            'result' => [
+                '123456789' => 0xda,
+                '' => 0xff,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Arc',
-            'result' => 0x15,
+            'result' => [
+                '123456789' => 0x15,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'DvbS2',
-            'result' => 0xbc,
+            'result' => [
+                '123456789' => 0xbc,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Ebu',
-            'result' => 0x97,
+            'result' => [
+                '123456789' => 0x97,
+                '' => 0xff,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'GsmA',
-            'result' => 0x37,
+            'result' => [
+                '123456789' => 0x37,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'GsmB',
-            'result' => 0x94,
+            'result' => [
+                '123456789' => 0x94,
+                '' => 0xff,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'ICode',
-            'result' => 0x7e,
+            'result' => [
+                '123456789' => 0x7e,
+                '' => 0xfd,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Itu',
-            'result' => 0xa1,
+            'result' => [
+                '123456789' => 0xa1,
+                '' => 0x55,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Lte',
-            'result' => 0xea,
+            'result' => [
+                '123456789' => 0xea,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Maxim',
-            'result' => 0xa1,
+            'result' => [
+                '123456789' => 0xa1,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Opensafety',
-            'result' => 0x3e,
+            'result' => [
+                '123456789' => 0x3e,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Rohc',
-            'result' => 0xd0,
+            'result' => [
+                '123456789' => 0xd0,
+                '' => 0xff,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'SaeJ1850',
-            'result' => 0x4b,
+            'result' => [
+                '123456789' => 0x4b,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
         ],
         [
             'class' => 'Wcdma',
-            'result' => 0x25,
+            'result' => [
+                '123456789' => 0x25,
+                '' => 0x00,
+            ],
         ],
     ];
 
@@ -95,10 +158,55 @@ class CRC8Test extends TestCase
     }
 
     /**
+     * @param $class
+     * @param $expectedResult
+     *
+     * @dataProvider getEmptyDataProvider
+     */
+    public function testEmptyValidity($class, $expectedResult)
+    {
+        $fqcn = 'PBurggraf\\CRC\\CRC8\\' . $class;
+
+        /** @var AbstractCRC8 $crcClass */
+        $crcClass = new $fqcn();
+        $calculatedResult = $crcClass->calculate('');
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
      * @return array
      */
     public function get1To9DataProvider()
     {
-        return self::$test1to9;
+        $tests = [];
+
+        foreach (self::$tests as $item) {
+            $tests[] = [
+                'class' => $item['class'],
+                'result' => $item['result']['123456789'],
+            ];
+        }
+
+        return $tests;
+    }
+
+
+
+    /**
+     * @return array
+     */
+    public function getEmptyDataProvider()
+    {
+        $tests = [];
+
+        foreach (self::$tests as $item) {
+            $tests[] = [
+                'class' => $item['class'],
+                'result' => $item['result'][''],
+            ];
+        }
+
+        return $tests;
     }
 }

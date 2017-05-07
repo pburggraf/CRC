@@ -10,122 +10,209 @@ use PHPUnit\Framework\TestCase;
  */
 class CRC16Test extends TestCase
 {
-    protected static $test1to9 = [
+    protected static $tests = [
         [
             'class' => 'Arc',
-            'result' => 0xbb3d,
+            'result' => [
+                '123456789' => 0xbb3d,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'AugCcitt',
-            'result' => 0xe5cc,
+            'result' => [
+                '123456789' => 0xe5cc,
+                '' => 0x1d0f,
+            ],
         ],
         [
             'class' => 'Buypass',
-            'result' => 0xfee8,
+            'result' => [
+                '123456789' => 0xfee8,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'CcittFalse',
-            'result' => 0x29b1,
+            'result' => [
+                '123456789' => 0x29b1,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'Cdma2000',
-            'result' => 0x4c06,
+            'result' => [
+                '123456789' => 0x4c06,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'Cms',
-            'result' => 0xaee7,
+            'result' => [
+                '123456789' => 0xaee7,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'Dds110',
-            'result' => 0x9ecf,
+            'result' => [
+                '123456789' => 0x9ecf,
+                '' => 0x800d,
+            ],
         ],
         [
             'class' => 'DectR',
-            'result' => 0x007e,
+            'result' => [
+                '123456789' => 0x00007e,
+                '' => 0x000001,
+            ],
         ],
         [
             'class' => 'DectX',
-            'result' => 0x007f,
+            'result' => [
+                '123456789' => 0x00007f,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Dnp',
-            'result' => 0xea82,
+            'result' => [
+                '123456789' => 0xea82,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'En13757',
-            'result' => 0xc2b7,
+            'result' => [
+                '123456789' => 0xc2b7,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'Genibus',
-            'result' => 0xd64e,
+            'result' => [
+                '123456789' => 0xd64e,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Gsm',
-            'result' => 0xce3c,
+            'result' => [
+                '123456789' => 0xce3c,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'Lj1200',
-            'result' => 0xbdf4,
+            'result' => [
+                '123456789' => 0xbdf4,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Maxim',
-            'result' => 0x44c2,
+            'result' => [
+                '123456789' => 0x44c2,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'Mcrf4xx',
-            'result' => 0x6f91,
+            'result' => [
+                '123456789' => 0x6f91,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'OpensafetyA',
-            'result' => 0x5d38,
+            'result' => [
+                '123456789' => 0x5d38,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'OpensafetyB',
-            'result' => 0x20fe,
+            'result' => [
+                '123456789' => 0x20fe,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Profibus',
-            'result' => 0xa819,
+            'result' => [
+                '123456789' => 0xa819,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Riello',
-            'result' => 0x63d0,
+            'result' => [
+                '123456789' => 0x63d0,
+                '' => 0x554d,
+            ],
         ],
         [
             'class' => 'T10Dif',
-            'result' => 0xd0db,
+            'result' => [
+                '123456789' => 0xd0db,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Teledisk',
-            'result' => 0x0fb3,
+            'result' => [
+                '123456789' => 0x0fb3,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Tms37157',
-            'result' => 0x26b1,
+            'result' => [
+                '123456789' => 0x26b1,
+                '' => 0x3791,
+            ],
         ],
         [
             'class' => 'Usb',
-            'result' => 0xb4c8,
+            'result' => [
+                '123456789' => 0xb4c8,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'A',
-            'result' => 0xbf05,
+            'result' => [
+                '123456789' => 0xbf05,
+                '' => 0x6363,
+            ],
         ],
         [
             'class' => 'Kermit',
-            'result' => 0x2189,
+            'result' => [
+                '123456789' => 0x2189,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Modbus',
-            'result' => 0x4b37,
+            'result' => [
+                '123456789' => 0x4b37,
+                '' => 0xffff,
+            ],
         ],
         [
             'class' => 'X25',
-            'result' => 0x906e,
+            'result' => [
+                '123456789' => 0x906e,
+                '' => 0x0000,
+            ],
         ],
         [
             'class' => 'Xmodem',
-            'result' => 0x31c3,
+            'result' => [
+                '123456789' => 0x31c3,
+                '' => 0x0000,
+            ],
         ],
     ];
 
@@ -147,10 +234,55 @@ class CRC16Test extends TestCase
     }
 
     /**
+     * @param $class
+     * @param $expectedResult
+     *
+     * @dataProvider getEmptyDataProvider
+     */
+    public function testEmptyValidity($class, $expectedResult)
+    {
+        $fqcn = 'PBurggraf\\CRC\\CRC16\\' . $class;
+
+        /** @var AbstractCRC16 $crcClass */
+        $crcClass = new $fqcn();
+        $calculatedResult = $crcClass->calculate('');
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
      * @return array
      */
     public function get1To9DataProvider()
     {
-        return self::$test1to9;
+        $tests = [];
+
+        foreach (self::$tests as $item) {
+            $tests[] = [
+                'class' => $item['class'],
+                'result' => $item['result']['123456789'],
+            ];
+        }
+
+        return $tests;
+    }
+
+
+
+    /**
+     * @return array
+     */
+    public function getEmptyDataProvider()
+    {
+        $tests = [];
+
+        foreach (self::$tests as $item) {
+            $tests[] = [
+                'class' => $item['class'],
+                'result' => $item['result'][''],
+            ];
+        }
+
+        return $tests;
     }
 }

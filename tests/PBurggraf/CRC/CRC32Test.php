@@ -3,6 +3,7 @@
 namespace PBurggraf\CRC\Tests;
 
 use PBurggraf\CRC\CRC16\AbstractCRC16;
+use PBurggraf\CRC\CRC32\AbstractCRC32;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,46 +11,76 @@ use PHPUnit\Framework\TestCase;
  */
 class CRC32Test extends TestCase
 {
-    protected static $test1to9 = [
+    protected static $tests = [
         [
             'class' => 'CRC32',
-            'result' => 0xcbf43926,
+            'result' => [
+                '123456789' => 0xcbf43926,
+                '' => 0x00000000,
+            ],
         ],
         [
             'class' => 'Autosar',
-            'result' => 0x1697d06a,
+            'result' => [
+                '123456789' => 0x1697d06a,
+                '' => 0x00000000,
+            ],
         ],
         [
             'class' => 'Bzip2',
-            'result' => 0xfc891918,
+            'result' => [
+                '123456789' => 0xfc891918,
+                '' => 0x00000000,
+            ],
         ],
         [
             'class' => 'C',
-            'result' => 0xe3069283,
+            'result' => [
+                '123456789' => 0xe3069283,
+                '' => 0x00000000,
+            ],
         ],
         [
             'class' => 'D',
-            'result' => 0x87315576,
+            'result' => [
+                '123456789' => 0x87315576,
+                '' => 0x00000000,
+            ],
         ],
         [
             'class' => 'Mpeg2',
-            'result' => 0x0376e6e7,
+            'result' => [
+                '123456789' => 0x0376e6e7,
+                '' => 0xffffffff,
+            ],
         ],
         [
             'class' => 'Posix',
-            'result' => 0x765e7680,
+            'result' => [
+                '123456789' => 0x765e7680,
+                '' => 0xffffffff,
+            ],
         ],
         [
             'class' => 'Q',
-            'result' => 0x3010bf7f,
+            'result' => [
+                '123456789' => 0x3010bf7f,
+                '' => 0x00000000,
+            ],
         ],
         [
             'class' => 'JamCRC',
-            'result' => 0x340bc6d9,
+            'result' => [
+                '123456789' => 0x340bc6d9,
+                '' => 0xffffffff,
+            ],
         ],
         [
             'class' => 'Xfer',
-            'result' => 0xbd0be338,
+            'result' => [
+                '123456789' => 0xbd0be338,
+                '' => 0x00000000,
+            ],
         ],
     ];
 
@@ -63,9 +94,26 @@ class CRC32Test extends TestCase
     {
         $fqcn = 'PBurggraf\\CRC\\CRC32\\' . $class;
 
-        /** @var AbstractCRC16 $crcClass */
+        /** @var AbstractCRC32 $crcClass */
         $crcClass = new $fqcn();
         $calculatedResult = $crcClass->calculate('123456789');
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
+     * @param $class
+     * @param $expectedResult
+     *
+     * @dataProvider getEmptyDataProvider
+     */
+    public function testEmptyValidity($class, $expectedResult)
+    {
+        $fqcn = 'PBurggraf\\CRC\\CRC32\\' . $class;
+
+        /** @var AbstractCRC32 $crcClass */
+        $crcClass = new $fqcn();
+        $calculatedResult = $crcClass->calculate('');
 
         $this->assertEquals($expectedResult, $calculatedResult);
     }
@@ -75,6 +123,33 @@ class CRC32Test extends TestCase
      */
     public function get1To9DataProvider()
     {
-        return self::$test1to9;
+        $tests = [];
+
+        foreach (self::$tests as $item) {
+            $tests[] = [
+                'class' => $item['class'],
+                'result' => $item['result']['123456789'],
+            ];
+        }
+
+        return $tests;
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getEmptyDataProvider()
+    {
+        $tests = [];
+
+        foreach (self::$tests as $item) {
+            $tests[] = [
+                'class' => $item['class'],
+                'result' => $item['result'][''],
+            ];
+        }
+
+        return $tests;
     }
 }
