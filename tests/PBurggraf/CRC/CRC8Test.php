@@ -44,7 +44,7 @@ class CRC8Test extends TestCase
             ],
         ],
         [
-            'class' => 'Arc',
+            'class' => 'Darc',
             'result' => [
                 '123456789' => 0x15,
                 '' => 0x00,
