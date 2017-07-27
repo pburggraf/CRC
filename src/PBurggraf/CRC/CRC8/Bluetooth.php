@@ -5,11 +5,11 @@ namespace PBurggraf\CRC\CRC8;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  */
-class Arc extends AbstractCRC8
+class Bluetooth extends AbstractCRC8
 {
     public function __construct()
     {
-        $this->poly = 0x39;
+        $this->poly = 0xa7;
         $this->init = 0x00;
 
         $this->reverseIn = true;

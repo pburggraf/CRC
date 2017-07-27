@@ -28,6 +28,14 @@ class CRC8Test extends TestCase
             ],
         ],
         [
+            'class' => 'Bluetooth',
+            'result' => [
+                '123456789' => 0x26,
+                '' => 0x00,
+                'A' => 0x00,
+            ],
+        ],
+        [
             'class' => 'Cdma2000',
             'result' => [
                 '123456789' => 0xda,
