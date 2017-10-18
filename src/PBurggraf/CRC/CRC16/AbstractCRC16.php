@@ -27,7 +27,8 @@ abstract class AbstractCRC16 extends AbstractCRC
                 $character = $this->binaryReverse($character, 8);
             }
 
-            $crc = ($this->lookupTable[(($crc >> 8) ^ $character) & 0xff] ^ ($crc << 8)) & 0xffff;
+            $crc = $this->lookupTable[(($crc >> 8) ^ $character) & 0xff] ^ ($crc << 8);
+            $crc &= 0xffff;
         }
 
         if ($this->reverseOut) {
