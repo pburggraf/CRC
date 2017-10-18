@@ -2,6 +2,13 @@
   "name": "pburggraf/crc",
   "description": "Cyclic redundancy checker class",
   "license": "MIT",
+  "keywords": [
+    "crc",
+    "crc8",
+    "crc16",
+    "crc24",
+    "crc32"
+  ],
   "authors": [
     {
       "name": "Philip Burggraf",
