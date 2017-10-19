@@ -15,7 +15,7 @@ $crc16AugCcitt = new \PBurggraf\CRC\CRC16\AugCcitt();
 var_dump(dechex($crc16AugCcitt->calculate('123456789'))); // string(4) "e5cc"
 
 $crc24 = new \PBurggraf\CRC\CRC24\CRC24();
-var_dump(dechex($crc24->calculate('123456789'))); // string(4) "0x21cf02"
+var_dump(dechex($crc24->calculate('123456789'))); // string(4) "21cf02"
 
 $crc32 = new \PBurggraf\CRC\CRC32\CRC32();
 var_dump(dechex($crc32->calculate('123456789'))); // string(4) "cbf43926"
