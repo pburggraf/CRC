@@ -9,20 +9,20 @@ This is an implementation of the [CRC RevEng Catalogue](http://reveng.sourceforg
 require __DIR__ . '/vendor/autoload.php';
 
 $crc8 = new \PBurggraf\CRC\CRC8\CRC8();
-var_dump(dechex($crc8->calculate('123456789'))); // string(4) "f4"
+var_dump(dechex($crc8->calculate('123456789'))); // string(2) "f4"
 
 $crc16AugCcitt = new \PBurggraf\CRC\CRC16\AugCcitt();
 var_dump(dechex($crc16AugCcitt->calculate('123456789'))); // string(4) "e5cc"
 
 $crc24 = new \PBurggraf\CRC\CRC24\CRC24();
-var_dump(dechex($crc24->calculate('123456789'))); // string(4) "21cf02"
+var_dump(dechex($crc24->calculate('123456789'))); // string(6) "21cf02"
 
 $crc32 = new \PBurggraf\CRC\CRC32\CRC32();
-var_dump(dechex($crc32->calculate('123456789'))); // string(4) "cbf43926"
+var_dump(dechex($crc32->calculate('123456789'))); // string(8) "cbf43926"
 ```
 
 ## Test
-This project uses phpunit to test the validation of license plates.
+This project uses phpunit to test the validation of crc calculations.
 
 ## Currently implemented
 #### 8bit CRC
