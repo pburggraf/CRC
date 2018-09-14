@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PBurggraf\CRC\Tests;
 
 use PBurggraf\CRC\CRC16\AbstractCRC16;
@@ -253,7 +255,7 @@ class CRC16Test extends TestCase
     /**
      * @return array
      */
-    public function get1To9DataProvider()
+    public function get1To9DataProvider(): array
     {
         $tests = [];
 
@@ -267,12 +269,10 @@ class CRC16Test extends TestCase
         return $tests;
     }
 
-
-
     /**
      * @return array
      */
-    public function getEmptyDataProvider()
+    public function getEmptyDataProvider(): array
     {
         $tests = [];
 

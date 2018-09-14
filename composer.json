@@ -1,13 +1,17 @@
 {
   "name": "pburggraf/crc",
-  "description": "Cyclic redundancy checker class",
+  "description": "Cyclic redundancy checker (crc) class to calculate crc8, crc16, crc24 and crc32 checksum values",
   "license": "MIT",
   "keywords": [
     "crc",
     "crc8",
     "crc16",
     "crc24",
-    "crc32"
+    "crc32",
+    "checksum",
+    "validation",
+    "checksum generator",
+    "cyclic redundancy checker"
   ],
   "authors": [
     {

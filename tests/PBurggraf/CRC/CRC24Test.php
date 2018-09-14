@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PBurggraf\CRC\Tests;
 
 use PBurggraf\CRC\CRC24\AbstractCRC24;
