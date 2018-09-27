@@ -86,8 +86,8 @@ class CRC32Test extends TestCase
     ];
 
     /**
-     * @param $class
-     * @param $expectedResult
+     * @param string $class
+     * @param string $expectedResult
      *
      * @dataProvider get1To9DataProvider
      */
@@ -103,8 +103,8 @@ class CRC32Test extends TestCase
     }
 
     /**
-     * @param $class
-     * @param $expectedResult
+     * @param string $class
+     * @param string $expectedResult
      *
      * @dataProvider getEmptyDataProvider
      */
