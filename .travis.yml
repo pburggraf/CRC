@@ -10,7 +10,9 @@ sudo: false
 matrix:
     fast_finish: true
 
-script: phpunit
+script:
+  - phpunit
+  - vendor/bin/phpstan analyse src tests -l max
 
 before_script:
   - composer install

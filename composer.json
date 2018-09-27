@@ -1,4 +1,5 @@
 {
+
   "name": "pburggraf/crc",
   "description": "Cyclic redundancy checker (crc) class to calculate crc8, crc16, crc24 and crc32 checksum values",
   "license": "MIT",
@@ -33,6 +34,7 @@
     "php": ">=7.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "~6.0"
+    "phpunit/phpunit": "~6.0",
+    "phpstan/phpstan": "~0.9"
   }
 }
