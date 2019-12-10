@@ -35,7 +35,7 @@ abstract class AbstractCRC
     protected $xorOut;
 
     /**
-     * @var array
+     * @var int[]
      */
     protected $lookupTable;
 
@@ -90,7 +90,7 @@ abstract class AbstractCRC
     /**
      * @param int $polynomial
      *
-     * @return array
+     * @return int[]
      */
     protected function generateTable(int $polynomial): array
     {

@@ -12,6 +12,9 @@ use PHPUnit\Framework\TestCase;
  */
 class CRC24Test extends TestCase
 {
+    /**
+     * @var array[]
+     */
     protected static $tests = [
         [
             'class' => 'CRC24',
@@ -70,7 +73,7 @@ class CRC24Test extends TestCase
      *
      * @dataProvider get1To9DataProvider
      */
-    public function test1To9Validity($class, $expectedResult)
+    public function test1To9Validity($class, $expectedResult): void
     {
         $fqcn = 'PBurggraf\\CRC\\CRC24\\' . $class;
 
@@ -87,7 +90,7 @@ class CRC24Test extends TestCase
      *
      * @dataProvider getEmptyDataProvider
      */
-    public function testEmptyValidity($class, $expectedResult)
+    public function testEmptyValidity($class, $expectedResult): void
     {
         $fqcn = 'PBurggraf\\CRC\\CRC24\\' . $class;
 
@@ -99,7 +102,7 @@ class CRC24Test extends TestCase
     }
 
     /**
-     * @return array
+     * @return array[]
      */
     public function get1To9DataProvider(): array
     {
@@ -116,7 +119,7 @@ class CRC24Test extends TestCase
     }
 
     /**
-     * @return array
+     * @return array[]
      */
     public function getEmptyDataProvider(): array
     {
