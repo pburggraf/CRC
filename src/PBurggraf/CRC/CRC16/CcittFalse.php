@@ -6,18 +6,9 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\IBM3740
  */
-class CcittFalse extends AbstractCRC16
+class CcittFalse extends IBM3740
 {
-    public function __construct()
-    {
-        $this->poly = 0x1021;
-        $this->init = 0xffff;
-
-        $this->reverseIn = false;
-        $this->reverseOut = false;
-        $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
-    }
 }

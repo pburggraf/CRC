@@ -7,18 +7,13 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  */
-class Ps2ff extends AbstractCRC16
+class Ps2ff extends SpiFujitsu
 {
     public function __construct()
     {
-        $this->poly = 0x1021;
-        $this->init = 0x1D0F;
+        parent::__construct();
 
-        $this->reverseIn = false;
-        $this->reverseOut = false;
-        $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        // The lookup table of the final fantasy x savegame is broken for position 0xff
         $this->lookupTable[0xff] = 0;
     }
 }

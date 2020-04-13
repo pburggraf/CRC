@@ -6,18 +6,9 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\UMTS
  */
-class Buypass extends AbstractCRC16
+class Buypass extends UMTS
 {
-    public function __construct()
-    {
-        $this->poly = 0x8005;
-        $this->init = 0x0000;
-
-        $this->reverseIn = false;
-        $this->reverseOut = false;
-        $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
-    }
 }

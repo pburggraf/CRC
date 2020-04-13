@@ -6,13 +6,15 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\AugCcitt
  */
-class Xmodem extends AbstractCRC16
+class SpiFujitsu extends AbstractCRC16
 {
     public function __construct()
     {
         $this->poly = 0x1021;
-        $this->init = 0x0000;
+        $this->init = 0x1D0F;
 
         $this->reverseIn = false;
         $this->reverseOut = false;

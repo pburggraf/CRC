@@ -4,6 +4,14 @@ declare(strict_types=1);
 
 namespace PBurggraf\CRC\Tests;
 
+use PBurggraf\CRC\CRC24\Ble;
+use PBurggraf\CRC\CRC24\LteA;
+use PBurggraf\CRC\CRC24\LteB;
+use PBurggraf\CRC\CRC24\CRC24;
+use PBurggraf\CRC\CRC24\OpenPGP;
+use PBurggraf\CRC\CRC24\FlexrayA;
+use PBurggraf\CRC\CRC24\FlexrayB;
+use PBurggraf\CRC\CRC24\Interlaken;
 use PBurggraf\CRC\CRC24\AbstractCRC24;
 use PHPUnit\Framework\TestCase;
 
@@ -17,52 +25,59 @@ class CRC24Test extends TestCase
      */
     protected static $tests = [
         [
-            'class' => 'CRC24',
-            'result' => [
-                '123456789' => 0x21cf02,
-                '' => 0xb704ce,
-            ],
-        ],
-        [
-            'class' => 'Ble',
+            'class' => Ble::class,
             'result' => [
                 '123456789' => 0xc25a56,
                 '' => 0xaaaaaa,
             ],
         ],
         [
-            'class' => 'FlexrayA',
+            'class' => CRC24::class,
+            'result' => [
+                '123456789' => 0x21cf02,
+                '' => 0xb704ce,
+            ],
+        ],
+        [
+            'class' => FlexrayA::class,
             'result' => [
                 '123456789' => 0x7979bd,
                 '' => 0xfedcba,
             ],
         ],
         [
-            'class' => 'FlexrayB',
+            'class' => FlexrayB::class,
             'result' => [
                 '123456789' => 0x1f23b8,
                 '' => 0xabcdef,
             ],
         ],
         [
-            'class' => 'Interlaken',
+            'class' => Interlaken::class,
             'result' => [
                 '123456789' => 0xb4f3e6,
                 '' => 0x000000,
             ],
         ],
         [
-            'class' => 'LteA',
+            'class' => LteA::class,
             'result' => [
                 '123456789' => 0xcde703,
                 '' => 0x000000,
             ],
         ],
         [
-            'class' => 'LteB',
+            'class' => LteB::class,
             'result' => [
                 '123456789' => 0x23ef52,
                 '' => 0x000000,
+            ],
+        ],
+        [
+            'class' => OpenPGP::class,
+            'result' => [
+                '123456789' => 0x21cf02,
+                '' => 0xb704ce,
             ],
         ],
     ];
@@ -75,10 +90,8 @@ class CRC24Test extends TestCase
      */
     public function test1To9Validity($class, $expectedResult): void
     {
-        $fqcn = 'PBurggraf\\CRC\\CRC24\\' . $class;
-
         /** @var AbstractCRC24 $crcClass */
-        $crcClass = new $fqcn();
+        $crcClass = new $class();
         $calculatedResult = $crcClass->calculate('123456789');
 
         $this->assertEquals($expectedResult, $calculatedResult);
@@ -92,10 +105,8 @@ class CRC24Test extends TestCase
      */
     public function testEmptyValidity($class, $expectedResult): void
     {
-        $fqcn = 'PBurggraf\\CRC\\CRC24\\' . $class;
-
         /** @var AbstractCRC24 $crcClass */
-        $crcClass = new $fqcn();
+        $crcClass = new $class();
         $calculatedResult = $crcClass->calculate('');
 
         $this->assertEquals($expectedResult, $calculatedResult);

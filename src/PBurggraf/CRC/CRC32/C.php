@@ -6,18 +6,15 @@ namespace PBurggraf\CRC\CRC32;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC32\ISCSI
  */
-class C extends AbstractCRC32
+class C extends ISCSI
 {
     public function __construct()
     {
-        $this->poly = 0x1edc6f41;
-        $this->init = 0xffffffff;
+        @trigger_error(sprintf('The class "%s" is deprecated since v0.7.0 and will be remove in v1.0.0, use class "ISCSI" instead.', __CLASS__), E_USER_DEPRECATED);
 
-        $this->reverseIn = true;
-        $this->reverseOut = true;
-        $this->xorOut = 0xffffffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        parent::__construct();
     }
 }

@@ -6,6 +6,10 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\Ccitt
+ * @see \PBurggraf\CRC\CRC16\CcittTrue
+ * @see \PBurggraf\CRC\CRC16\V41LSB
  */
 class Kermit extends AbstractCRC16
 {

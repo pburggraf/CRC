@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace PBurggraf\CRC;
 
+use function ord;
+use function strlen;
+
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  */
@@ -45,13 +48,11 @@ abstract class AbstractCRC
     protected $bitLength;
 
     /**
-     * @param string $buffer
-     *
      * @return int
      */
     public function calculate(string $buffer): int
     {
-        $bufferLength = \strlen($buffer);
+        $bufferLength = strlen($buffer);
 
         $mask = (((1 << ($this->bitLength - 1)) - 1) << 1) | 1;
         $highBit = 1 << ($this->bitLength - 1);
@@ -59,7 +60,7 @@ abstract class AbstractCRC
         $crc = $this->init;
 
         for ($iterator = 0; $iterator < $bufferLength; ++$iterator) {
-            $character = \ord($buffer[$iterator]);
+            $character = ord($buffer[$iterator]);
             if ($this->reverseIn) {
                 $character = $this->binaryReverse($character, 8);
             }
@@ -88,8 +89,6 @@ abstract class AbstractCRC
     }
 
     /**
-     * @param int $polynomial
-     *
      * @return int[]
      */
     protected function generateTable(int $polynomial): array
@@ -128,9 +127,6 @@ abstract class AbstractCRC
     }
 
     /**
-     * @param int $binaryInput
-     * @param int $bitlen
-     *
      * @return int
      */
     protected function binaryReverse(int $binaryInput, int $bitlen): int

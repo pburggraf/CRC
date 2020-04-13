@@ -6,6 +6,8 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\IEC611582
  */
 class Profibus extends AbstractCRC16
 {

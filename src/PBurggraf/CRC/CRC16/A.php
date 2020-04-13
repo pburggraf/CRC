@@ -6,18 +6,15 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\ISOIEC144433A
  */
-class A extends AbstractCRC16
+class A extends ISOIEC144433A
 {
     public function __construct()
     {
-        $this->poly = 0x1021;
-        $this->init = 0xc6c6;
+        @trigger_error(sprintf('The class "%s" is deprecated since v0.7.0 and will be remove in v1.0.0, use class "ISOIEC144433A" instead.', __CLASS__), E_USER_DEPRECATED);
 
-        $this->reverseIn = true;
-        $this->reverseOut = true;
-        $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        parent::__construct();
     }
 }

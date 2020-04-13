@@ -6,6 +6,10 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\CRC16
+ * @see \PBurggraf\CRC\CRC16\CRCIBM
+ * @see \PBurggraf\CRC\CRC16\LHA
  */
 class Arc extends AbstractCRC16
 {

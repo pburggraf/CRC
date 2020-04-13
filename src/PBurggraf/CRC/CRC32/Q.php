@@ -6,18 +6,17 @@ namespace PBurggraf\CRC\CRC32;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @deprecated
+ *
+ * @see \PBurggraf\CRC\CRC32\AIXM
  */
-class Q extends AbstractCRC32
+class Q extends AIXM
 {
     public function __construct()
     {
-        $this->poly = 0x814141ab;
-        $this->init = 0x00000000;
+        @trigger_error(sprintf('The class "%s" is deprecated since v0.7.0 and will be remove in v1.0.0, use class "AIXM" instead.', __CLASS__), E_USER_DEPRECATED);
 
-        $this->reverseIn = false;
-        $this->reverseOut = false;
-        $this->xorOut = 0x00000000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        parent::__construct();
     }
 }

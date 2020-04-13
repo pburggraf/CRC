@@ -6,12 +6,14 @@ namespace PBurggraf\CRC\CRC8;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC8\Maxim
  */
-class Darc extends AbstractCRC8
+class MaximDow extends AbstractCRC8
 {
     public function __construct()
     {
-        $this->poly = 0x39;
+        $this->poly = 0x31;
         $this->init = 0x00;
 
         $this->reverseIn = true;

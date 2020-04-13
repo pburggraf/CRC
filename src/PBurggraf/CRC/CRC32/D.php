@@ -6,18 +6,17 @@ namespace PBurggraf\CRC\CRC32;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @deprecated
+ *
+ * @see \PBurggraf\CRC\CRC32\Base91D
  */
-class D extends AbstractCRC32
+class D extends Base91D
 {
     public function __construct()
     {
-        $this->poly = 0xa833982b;
-        $this->init = 0xffffffff;
+        @trigger_error(sprintf('The class "%s" is deprecated since v0.7.0 and will be remove in v1.0.0, use class "Base91D" instead.', __CLASS__), E_USER_DEPRECATED);
 
-        $this->reverseIn = true;
-        $this->reverseOut = true;
-        $this->xorOut = 0xffffffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        parent::__construct();
     }
 }

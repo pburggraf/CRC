@@ -6,18 +6,9 @@ namespace PBurggraf\CRC\CRC16;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC16\IBMSDLC
  */
-class X25 extends AbstractCRC16
+class X25 extends IBMSDLC
 {
-    public function __construct()
-    {
-        $this->poly = 0x1021;
-        $this->init = 0xffff;
-
-        $this->reverseIn = true;
-        $this->reverseOut = true;
-        $this->xorOut = 0xffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
-    }
 }

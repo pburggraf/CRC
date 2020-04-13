@@ -6,18 +6,9 @@ namespace PBurggraf\CRC\CRC8;
 
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
+ *
+ * @see \PBurggraf\CRC\CRC8\MaximDow
  */
-class Maxim extends AbstractCRC8
+class Maxim extends MaximDow
 {
-    public function __construct()
-    {
-        $this->poly = 0x31;
-        $this->init = 0x00;
-
-        $this->reverseIn = true;
-        $this->reverseOut = true;
-        $this->xorOut = 0x00;
-
-        $this->lookupTable = $this->generateTable($this->poly);
-    }
 }
