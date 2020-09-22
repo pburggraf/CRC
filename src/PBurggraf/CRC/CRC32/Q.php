@@ -8,7 +8,6 @@ namespace PBurggraf\CRC\CRC32;
  * @author Philip Burggraf <philip@pburggraf.de>
  *
  * @deprecated
- *
  * @see \PBurggraf\CRC\CRC32\AIXM
  */
 class Q extends AIXM
