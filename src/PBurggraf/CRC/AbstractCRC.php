@@ -47,9 +47,6 @@ abstract class AbstractCRC
      */
     protected $bitLength;
 
-    /**
-     * @return int
-     */
     public function calculate(string $buffer): int
     {
         $bufferLength = strlen($buffer);
@@ -126,9 +123,6 @@ abstract class AbstractCRC
         return $crctab;
     }
 
-    /**
-     * @return int
-     */
     protected function binaryReverse(int $binaryInput, int $bitlen): int
     {
         $cloneBits = $binaryInput;

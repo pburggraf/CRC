@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PBurggraf\CRC\Tests;
 
+use PBurggraf\CRC\CRC24\AbstractCRC24;
 use PBurggraf\CRC\CRC24\Ble;
-use PBurggraf\CRC\CRC24\LteA;
-use PBurggraf\CRC\CRC24\LteB;
 use PBurggraf\CRC\CRC24\CRC24;
-use PBurggraf\CRC\CRC24\OpenPGP;
 use PBurggraf\CRC\CRC24\FlexrayA;
 use PBurggraf\CRC\CRC24\FlexrayB;
 use PBurggraf\CRC\CRC24\Interlaken;
-use PBurggraf\CRC\CRC24\AbstractCRC24;
+use PBurggraf\CRC\CRC24\LteA;
+use PBurggraf\CRC\CRC24\LteB;
+use PBurggraf\CRC\CRC24\OpenPGP;
 use PHPUnit\Framework\TestCase;
 
 /**
