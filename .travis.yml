@@ -12,7 +12,7 @@ matrix:
 
 script:
   - vendor/bin/phpunit
-  - vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --diff-format=udiff --allow-risky=yes --config=.php_cs.dist
+  - PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --diff-format=udiff --allow-risky=yes --config=.php_cs.dist
   - vendor/bin/phpstan analyse src tests -l max
 
 before_script:
