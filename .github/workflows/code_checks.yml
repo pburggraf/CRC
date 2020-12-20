@@ -29,7 +29,7 @@ jobs:
     strategy:
       matrix:
         php: [ '7.3', '7.4', '8.0' ]
-    name: PHP ${{ matrix.php }} tests
+    name: PHP ${{ matrix.php }} code style
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v1
@@ -37,14 +37,14 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
       - run: composer install --no-progress
-      - run: PHP_CS_FIXER_IGNORE_ENV=1  vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --diff-format=udiff --allow-risky=yes --config=.php_cs.dist
+      - run: PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --diff-format=udiff --allow-risky=yes --config=.php_cs.dist
 
   phpstan:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         php: [ '7.3', '7.4', '8.0' ]
-    name: PHP ${{ matrix.php }} tests
+    name: PHP ${{ matrix.php }} phpstan
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v1
