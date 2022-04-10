@@ -16,8 +16,6 @@ class GsmB extends AbstractCRC8
 
         $this->reverseIn = false;
         $this->reverseOut = false;
-        $this->xorOut = 0xff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        $this->xorOut = 0xFF;
     }
 }

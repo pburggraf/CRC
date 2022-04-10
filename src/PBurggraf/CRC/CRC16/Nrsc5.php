@@ -11,13 +11,11 @@ class Nrsc5 extends AbstractCRC16
 {
     public function __construct()
     {
-        $this->poly = 0x080b;
-        $this->init = 0xffff;
+        $this->poly = 0x080B;
+        $this->init = 0xFFFF;
 
         $this->reverseIn = true;
         $this->reverseOut = true;
         $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

@@ -11,13 +11,11 @@ class CdRomEDC extends AbstractCRC32
 {
     public function __construct()
     {
-        $this->poly = 0x8001801b;
+        $this->poly = 0x8001801B;
         $this->init = 0x00000000;
 
         $this->reverseIn = true;
         $this->reverseOut = true;
         $this->xorOut = 0x00000000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

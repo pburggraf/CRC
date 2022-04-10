@@ -19,7 +19,5 @@ class I4321 extends AbstractCRC8
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x55;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

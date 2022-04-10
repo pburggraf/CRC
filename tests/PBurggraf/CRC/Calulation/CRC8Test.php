@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PBurggraf\CRC\Tests;
+namespace PBurggraf\CRC\Calulation;
 
 use PBurggraf\CRC\CRC8\AbstractCRC8;
 use PBurggraf\CRC\CRC8\AES;
@@ -45,14 +45,14 @@ class CRC8Test extends TestCase
             'class' => AES::class,
             'result' => [
                 '123456789' => 0x97,
-                '' => 0xff,
+                '' => 0xFF,
                 'A' => 0x00,
             ],
         ],
         [
             'class' => Autosar::class,
             'result' => [
-                '123456789' => 0xdf,
+                '123456789' => 0xDF,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -68,15 +68,15 @@ class CRC8Test extends TestCase
         [
             'class' => Cdma2000::class,
             'result' => [
-                '123456789' => 0xda,
-                '' => 0xff,
+                '123456789' => 0xDA,
+                '' => 0xFF,
                 'A' => 0x00,
             ],
         ],
         [
             'class' => CRC8::class,
             'result' => [
-                '123456789' => 0xf4,
+                '123456789' => 0xF4,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -92,7 +92,7 @@ class CRC8Test extends TestCase
         [
             'class' => DowCRC::class,
             'result' => [
-                '123456789' => 0xa1,
+                '123456789' => 0xA1,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -100,7 +100,7 @@ class CRC8Test extends TestCase
         [
             'class' => DvbS2::class,
             'result' => [
-                '123456789' => 0xbc,
+                '123456789' => 0xBC,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -109,7 +109,7 @@ class CRC8Test extends TestCase
             'class' => EBU::class,
             'result' => [
                 '123456789' => 0x97,
-                '' => 0xff,
+                '' => 0xFF,
                 'A' => 0x00,
             ],
         ],
@@ -125,14 +125,14 @@ class CRC8Test extends TestCase
             'class' => GsmB::class,
             'result' => [
                 '123456789' => 0x94,
-                '' => 0xff,
+                '' => 0xFF,
                 'A' => 0x00,
             ],
         ],
         [
             'class' => I4321::class,
             'result' => [
-                '123456789' => 0xa1,
+                '123456789' => 0xA1,
                 '' => 0x55,
                 'A' => 0x00,
             ],
@@ -140,15 +140,15 @@ class CRC8Test extends TestCase
         [
             'class' => ICode::class,
             'result' => [
-                '123456789' => 0x7e,
-                '' => 0xfd,
+                '123456789' => 0x7E,
+                '' => 0xFD,
                 'A' => 0x00,
             ],
         ],
         [
             'class' => Itu::class,
             'result' => [
-                '123456789' => 0xa1,
+                '123456789' => 0xA1,
                 '' => 0x55,
                 'A' => 0x00,
             ],
@@ -156,7 +156,7 @@ class CRC8Test extends TestCase
         [
             'class' => Lte::class,
             'result' => [
-                '123456789' => 0xea,
+                '123456789' => 0xEA,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -164,7 +164,7 @@ class CRC8Test extends TestCase
         [
             'class' => Maxim::class,
             'result' => [
-                '123456789' => 0xa1,
+                '123456789' => 0xA1,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -172,7 +172,7 @@ class CRC8Test extends TestCase
         [
             'class' => MaximDow::class,
             'result' => [
-                '123456789' => 0xa1,
+                '123456789' => 0xA1,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -181,22 +181,22 @@ class CRC8Test extends TestCase
             'class' => MifareMad::class,
             'result' => [
                 '123456789' => 0x99,
-                '' => 0xc7,
+                '' => 0xC7,
                 'A' => 0x00,
             ],
         ],
         [
             'class' => Nrsc5::class,
             'result' => [
-                '123456789' => 0xf7,
-                '' => 0xff,
+                '123456789' => 0xF7,
+                '' => 0xFF,
                 'A' => 0x00,
             ],
         ],
         [
             'class' => Opensafety::class,
             'result' => [
-                '123456789' => 0x3e,
+                '123456789' => 0x3E,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -204,15 +204,15 @@ class CRC8Test extends TestCase
         [
             'class' => Rohc::class,
             'result' => [
-                '123456789' => 0xd0,
-                '' => 0xff,
+                '123456789' => 0xD0,
+                '' => 0xFF,
                 'A' => 0x00,
             ],
         ],
         [
             'class' => SaeJ1850::class,
             'result' => [
-                '123456789' => 0x4b,
+                '123456789' => 0x4B,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -220,7 +220,7 @@ class CRC8Test extends TestCase
         [
             'class' => SMBus::class,
             'result' => [
-                '123456789' => 0xf4,
+                '123456789' => 0xF4,
                 '' => 0x00,
                 'A' => 0x00,
             ],
@@ -229,7 +229,7 @@ class CRC8Test extends TestCase
             'class' => Tech3250::class,
             'result' => [
                 '123456789' => 0x97,
-                '' => 0xff,
+                '' => 0xFF,
                 'A' => 0x00,
             ],
         ],
@@ -268,6 +268,36 @@ class CRC8Test extends TestCase
         /** @var AbstractCRC8 $crcClass */
         $crcClass = new $class();
         $calculatedResult = $crcClass->calculate('');
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
+     * @param string $class
+     * @param string $expectedResult
+     *
+     * @dataProvider get1To9DataProvider
+     */
+    public function test1To9TableValidity($class, $expectedResult): void
+    {
+        /** @var AbstractCRC8 $crcClass */
+        $crcClass = new $class();
+        $calculatedResult = $crcClass->calculateWithTable('123456789', $crcClass->populateTable());
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
+     * @param string $class
+     * @param string $expectedResult
+     *
+     * @dataProvider getEmptyDataProvider
+     */
+    public function testEmptyTableValidity($class, $expectedResult): void
+    {
+        /** @var AbstractCRC8 $crcClass */
+        $crcClass = new $class();
+        $calculatedResult = $crcClass->calculateWithTable('', $crcClass->populateTable());
 
         $this->assertEquals($expectedResult, $calculatedResult);
     }

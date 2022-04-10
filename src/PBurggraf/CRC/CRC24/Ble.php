@@ -11,13 +11,11 @@ class Ble extends AbstractCRC24
 {
     public function __construct()
     {
-        $this->poly = 0x00065b;
+        $this->poly = 0x00065B;
         $this->init = 0x555555;
 
         $this->reverseIn = true;
         $this->reverseOut = true;
         $this->xorOut = 0x000000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

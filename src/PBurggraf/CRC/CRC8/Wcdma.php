@@ -11,13 +11,11 @@ class Wcdma extends AbstractCRC8
 {
     public function __construct()
     {
-        $this->poly = 0x9b;
+        $this->poly = 0x9B;
         $this->init = 0x00;
 
         $this->reverseIn = true;
         $this->reverseOut = true;
         $this->xorOut = 0x00;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

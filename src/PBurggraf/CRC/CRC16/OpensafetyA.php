@@ -17,7 +17,5 @@ class OpensafetyA extends AbstractCRC16
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

@@ -21,7 +21,5 @@ class Arc extends AbstractCRC16
         $this->reverseIn = true;
         $this->reverseOut = true;
         $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

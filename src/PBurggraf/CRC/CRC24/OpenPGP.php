@@ -13,13 +13,11 @@ class OpenPGP extends AbstractCRC24
 {
     public function __construct()
     {
-        $this->poly = 0x864cfb;
-        $this->init = 0xb704ce;
+        $this->poly = 0x864CFB;
+        $this->init = 0xB704CE;
 
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x000000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

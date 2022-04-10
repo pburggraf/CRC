@@ -19,7 +19,5 @@ class MaximDow extends AbstractCRC8
         $this->reverseIn = true;
         $this->reverseOut = true;
         $this->xorOut = 0x00;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

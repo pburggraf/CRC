@@ -16,8 +16,6 @@ class Gsm extends AbstractCRC16
 
         $this->reverseIn = false;
         $this->reverseOut = false;
-        $this->xorOut = 0xffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        $this->xorOut = 0xFFFF;
     }
 }

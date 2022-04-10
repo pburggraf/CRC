@@ -17,13 +17,11 @@ class ISOHDLC extends AbstractCRC32
 {
     public function __construct()
     {
-        $this->poly = 0x04c11db7;
-        $this->init = 0xffffffff;
+        $this->poly = 0x04C11DB7;
+        $this->init = 0xFFFFFFFF;
 
         $this->reverseIn = true;
         $this->reverseOut = true;
-        $this->xorOut = 0xffffffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        $this->xorOut = 0xFFFFFFFF;
     }
 }

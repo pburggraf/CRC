@@ -17,12 +17,10 @@ class IBMSDLC extends AbstractCRC16
     public function __construct()
     {
         $this->poly = 0x1021;
-        $this->init = 0xffff;
+        $this->init = 0xFFFF;
 
         $this->reverseIn = true;
         $this->reverseOut = true;
-        $this->xorOut = 0xffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        $this->xorOut = 0xFFFF;
     }
 }

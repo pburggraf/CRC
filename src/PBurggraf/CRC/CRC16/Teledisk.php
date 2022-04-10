@@ -11,13 +11,11 @@ class Teledisk extends AbstractCRC16
 {
     public function __construct()
     {
-        $this->poly = 0xa097;
+        $this->poly = 0xA097;
         $this->init = 0x0000;
 
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x0000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

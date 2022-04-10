@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PBurggraf\CRC\Tests;
+namespace PBurggraf\CRC\Calulation;
 
 use PBurggraf\CRC\CRC16\A;
 use PBurggraf\CRC\CRC16\AbstractCRC16;
@@ -49,6 +49,7 @@ use PBurggraf\CRC\CRC16\Nrsc5;
 use PBurggraf\CRC\CRC16\OpensafetyA;
 use PBurggraf\CRC\CRC16\OpensafetyB;
 use PBurggraf\CRC\CRC16\Profibus;
+use PBurggraf\CRC\CRC16\Ps2ffx;
 use PBurggraf\CRC\CRC16\RCRC16;
 use PBurggraf\CRC\CRC16\Riello;
 use PBurggraf\CRC\CRC16\SpiFujitsu;
@@ -78,42 +79,42 @@ class CRC16Test extends TestCase
         [
             'class' => A::class,
             'result' => [
-                '123456789' => 0xbf05,
+                '123456789' => 0xBF05,
                 '' => 0x6363,
             ],
         ],
         [
             'class' => Acorn::class,
             'result' => [
-                '123456789' => 0x31c3,
+                '123456789' => 0x31C3,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Arc::class,
             'result' => [
-                '123456789' => 0xbb3d,
+                '123456789' => 0xBB3D,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => AugCcitt::class,
             'result' => [
-                '123456789' => 0xe5cc,
-                '' => 0x1d0f,
+                '123456789' => 0xE5CC,
+                '' => 0x1D0F,
             ],
         ],
         [
             'class' => Autosar::class,
             'result' => [
-                '123456789' => 0x29b1,
-                '' => 0xffff,
+                '123456789' => 0x29B1,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => Buypass::class,
             'result' => [
-                '123456789' => 0xfee8,
+                '123456789' => 0xFEE8,
                 '' => 0x0000,
             ],
         ],
@@ -127,8 +128,8 @@ class CRC16Test extends TestCase
         [
             'class' => CcittFalse::class,
             'result' => [
-                '123456789' => 0x29b1,
-                '' => 0xffff,
+                '123456789' => 0x29B1,
+                '' => 0xFFFF,
             ],
         ],
         [
@@ -141,161 +142,161 @@ class CRC16Test extends TestCase
         [
             'class' => Cdma2000::class,
             'result' => [
-                '123456789' => 0x4c06,
-                '' => 0xffff,
+                '123456789' => 0x4C06,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => Cms::class,
             'result' => [
-                '123456789' => 0xaee7,
-                '' => 0xffff,
+                '123456789' => 0xAEE7,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => CRC16::class,
             'result' => [
-                '123456789' => 0xbb3d,
+                '123456789' => 0xBB3D,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => CRCA::class,
             'result' => [
-                '123456789' => 0xbf05,
+                '123456789' => 0xBF05,
                 '' => 0x6363,
             ],
         ],
         [
             'class' => CRCB::class,
             'result' => [
-                '123456789' => 0x906e,
+                '123456789' => 0x906E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => CRCIBM::class,
             'result' => [
-                '123456789' => 0xbb3d,
+                '123456789' => 0xBB3D,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => DArc::class,
             'result' => [
-                '123456789' => 0xd64e,
+                '123456789' => 0xD64E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Dds110::class,
             'result' => [
-                '123456789' => 0x9ecf,
-                '' => 0x800d,
+                '123456789' => 0x9ECF,
+                '' => 0x800D,
             ],
         ],
         [
             'class' => DectR::class,
             'result' => [
-                '123456789' => 0x007e,
+                '123456789' => 0x007E,
                 '' => 0x000001,
             ],
         ],
         [
             'class' => DectX::class,
             'result' => [
-                '123456789' => 0x007f,
+                '123456789' => 0x007F,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Dnp::class,
             'result' => [
-                '123456789' => 0xea82,
-                '' => 0xffff,
+                '123456789' => 0xEA82,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => En13757::class,
             'result' => [
-                '123456789' => 0xc2b7,
-                '' => 0xffff,
+                '123456789' => 0xC2B7,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => EPC::class,
             'result' => [
-                '123456789' => 0xd64e,
+                '123456789' => 0xD64E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => EPCC1G2::class,
             'result' => [
-                '123456789' => 0xd64e,
+                '123456789' => 0xD64E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Genibus::class,
             'result' => [
-                '123456789' => 0xd64e,
+                '123456789' => 0xD64E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Gsm::class,
             'result' => [
-                '123456789' => 0xce3c,
-                '' => 0xffff,
+                '123456789' => 0xCE3C,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => IBM3740::class,
             'result' => [
-                '123456789' => 0x29b1,
-                '' => 0xffff,
+                '123456789' => 0x29B1,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => IBMSDLC::class,
             'result' => [
-                '123456789' => 0x906e,
+                '123456789' => 0x906E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => ICode::class,
             'result' => [
-                '123456789' => 0xd64e,
+                '123456789' => 0xD64E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => IEC611582::class,
             'result' => [
-                '123456789' => 0xa819,
+                '123456789' => 0xA819,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => ISOHDLC::class,
             'result' => [
-                '123456789' => 0x906e,
+                '123456789' => 0x906E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => ISOIEC144433A::class,
             'result' => [
-                '123456789' => 0xbf05,
+                '123456789' => 0xBF05,
                 '' => 0x6363,
             ],
         ],
         [
             'class' => ISOIEC144433B::class,
             'result' => [
-                '123456789' => 0x906e,
+                '123456789' => 0x906E,
                 '' => 0x0000,
             ],
         ],
@@ -309,140 +310,140 @@ class CRC16Test extends TestCase
         [
             'class' => LHA::class,
             'result' => [
-                '123456789' => 0xbb3d,
+                '123456789' => 0xBB3D,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Lj1200::class,
             'result' => [
-                '123456789' => 0xbdf4,
+                '123456789' => 0xBDF4,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => LTE::class,
             'result' => [
-                '123456789' => 0x31c3,
+                '123456789' => 0x31C3,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Maxim::class,
             'result' => [
-                '123456789' => 0x44c2,
-                '' => 0xffff,
+                '123456789' => 0x44C2,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => MaximDow::class,
             'result' => [
-                '123456789' => 0x44c2,
-                '' => 0xffff,
+                '123456789' => 0x44C2,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => Mcrf4xx::class,
             'result' => [
-                '123456789' => 0x6f91,
-                '' => 0xffff,
+                '123456789' => 0x6F91,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => Modbus::class,
             'result' => [
-                '123456789' => 0x4b37,
-                '' => 0xffff,
+                '123456789' => 0x4B37,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => Nrsc5::class,
             'result' => [
-                '123456789' => 0xa066,
-                '' => 0xffff,
+                '123456789' => 0xA066,
+                '' => 0xFFFF,
             ],
         ],
         [
             'class' => OpensafetyA::class,
             'result' => [
-                '123456789' => 0x5d38,
+                '123456789' => 0x5D38,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => OpensafetyB::class,
             'result' => [
-                '123456789' => 0x20fe,
+                '123456789' => 0x20FE,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Profibus::class,
             'result' => [
-                '123456789' => 0xa819,
+                '123456789' => 0xA819,
                 '' => 0x0000,
             ],
         ],
-//        [
-//            'class' => Ps2ff::class,
-//            'result' => [
-//                '123456789' => 0x63d0,
-//                '' => 0x554d,
-//            ],
-//        ],
+        [
+            'class' => Ps2ffx::class,
+            'result' => [
+                '123456789' => 0xE5CC,
+                '' => 0x1D0F,
+            ],
+        ],
         [
             'class' => RCRC16::class,
             'result' => [
-                '123456789' => 0x007e,
-                '' => 0x000001,
+                '123456789' => 0x007E,
+                '' => 0x0001,
             ],
         ],
         [
             'class' => Riello::class,
             'result' => [
-                '123456789' => 0x63d0,
-                '' => 0x554d,
+                '123456789' => 0x63D0,
+                '' => 0x554D,
             ],
         ],
         [
             'class' => SpiFujitsu::class,
             'result' => [
-                '123456789' => 0xe5cc,
-                '' => 0x1d0f,
+                '123456789' => 0xE5CC,
+                '' => 0x1D0F,
             ],
         ],
         [
             'class' => T10Dif::class,
             'result' => [
-                '123456789' => 0xd0db,
+                '123456789' => 0xD0DB,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Teledisk::class,
             'result' => [
-                '123456789' => 0x0fb3,
+                '123456789' => 0x0FB3,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Tms37157::class,
             'result' => [
-                '123456789' => 0x26b1,
+                '123456789' => 0x26B1,
                 '' => 0x3791,
             ],
         ],
         [
             'class' => UMTS::class,
             'result' => [
-                '123456789' => 0xfee8,
+                '123456789' => 0xFEE8,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Usb::class,
             'result' => [
-                '123456789' => 0xb4c8,
+                '123456789' => 0xB4C8,
                 '' => 0x0000,
             ],
         ],
@@ -456,42 +457,42 @@ class CRC16Test extends TestCase
         [
             'class' => V41MSB::class,
             'result' => [
-                '123456789' => 0x31c3,
+                '123456789' => 0x31C3,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => Verifone::class,
             'result' => [
-                '123456789' => 0xfee8,
+                '123456789' => 0xFEE8,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => X25::class,
             'result' => [
-                '123456789' => 0x906e,
+                '123456789' => 0x906E,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => XCRC16::class,
             'result' => [
-                '123456789' => 0x007f,
+                '123456789' => 0x007F,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => XModem::class,
             'result' => [
-                '123456789' => 0x31c3,
+                '123456789' => 0x31C3,
                 '' => 0x0000,
             ],
         ],
         [
             'class' => ZModem::class,
             'result' => [
-                '123456789' => 0x31c3,
+                '123456789' => 0x31C3,
                 '' => 0x0000,
             ],
         ],
@@ -523,6 +524,36 @@ class CRC16Test extends TestCase
         /** @var AbstractCRC16 $crcClass */
         $crcClass = new $class();
         $calculatedResult = $crcClass->calculate('');
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
+     * @param string $class
+     * @param string $expectedResult
+     *
+     * @dataProvider get1To9DataProvider
+     */
+    public function test1To9TableValidity($class, $expectedResult): void
+    {
+        /** @var AbstractCRC16 $crcClass */
+        $crcClass = new $class();
+        $calculatedResult = $crcClass->calculateWithTable('123456789', $crcClass->populateTable());
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
+     * @param string $class
+     * @param string $expectedResult
+     *
+     * @dataProvider getEmptyDataProvider
+     */
+    public function testEmptyTableValidity($class, $expectedResult): void
+    {
+        /** @var AbstractCRC16 $crcClass */
+        $crcClass = new $class();
+        $calculatedResult = $crcClass->calculateWithTable('', $crcClass->populateTable());
 
         $this->assertEquals($expectedResult, $calculatedResult);
     }

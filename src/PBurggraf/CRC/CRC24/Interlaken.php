@@ -11,13 +11,11 @@ class Interlaken extends AbstractCRC24
 {
     public function __construct()
     {
-        $this->poly = 0x328b63;
-        $this->init = 0xffffff;
+        $this->poly = 0x328B63;
+        $this->init = 0xFFFFFF;
 
         $this->reverseIn = false;
         $this->reverseOut = false;
-        $this->xorOut = 0xffffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        $this->xorOut = 0xFFFFFF;
     }
 }
