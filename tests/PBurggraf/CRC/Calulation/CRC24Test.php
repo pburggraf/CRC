@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PBurggraf\CRC\Tests;
+namespace PBurggraf\CRC\Calulation;
 
 use PBurggraf\CRC\CRC24\AbstractCRC24;
 use PBurggraf\CRC\CRC24\Ble;
@@ -27,57 +27,57 @@ class CRC24Test extends TestCase
         [
             'class' => Ble::class,
             'result' => [
-                '123456789' => 0xc25a56,
-                '' => 0xaaaaaa,
+                '123456789' => 0xC25A56,
+                '' => 0xAAAAAA,
             ],
         ],
         [
             'class' => CRC24::class,
             'result' => [
-                '123456789' => 0x21cf02,
-                '' => 0xb704ce,
+                '123456789' => 0x21CF02,
+                '' => 0xB704CE,
             ],
         ],
         [
             'class' => FlexrayA::class,
             'result' => [
-                '123456789' => 0x7979bd,
-                '' => 0xfedcba,
+                '123456789' => 0x7979BD,
+                '' => 0xFEDCBA,
             ],
         ],
         [
             'class' => FlexrayB::class,
             'result' => [
-                '123456789' => 0x1f23b8,
-                '' => 0xabcdef,
+                '123456789' => 0x1F23B8,
+                '' => 0xABCDEF,
             ],
         ],
         [
             'class' => Interlaken::class,
             'result' => [
-                '123456789' => 0xb4f3e6,
+                '123456789' => 0xB4F3E6,
                 '' => 0x000000,
             ],
         ],
         [
             'class' => LteA::class,
             'result' => [
-                '123456789' => 0xcde703,
+                '123456789' => 0xCDE703,
                 '' => 0x000000,
             ],
         ],
         [
             'class' => LteB::class,
             'result' => [
-                '123456789' => 0x23ef52,
+                '123456789' => 0x23EF52,
                 '' => 0x000000,
             ],
         ],
         [
             'class' => OpenPGP::class,
             'result' => [
-                '123456789' => 0x21cf02,
-                '' => 0xb704ce,
+                '123456789' => 0x21CF02,
+                '' => 0xB704CE,
             ],
         ],
     ];
@@ -127,6 +127,36 @@ class CRC24Test extends TestCase
         }
 
         return $tests;
+    }
+
+    /**
+     * @param string $class
+     * @param string $expectedResult
+     *
+     * @dataProvider get1To9DataProvider
+     */
+    public function test1To9TableValidity($class, $expectedResult): void
+    {
+        /** @var AbstractCRC24 $crcClass */
+        $crcClass = new $class();
+        $calculatedResult = $crcClass->calculateWithTable('123456789', $crcClass->populateTable());
+
+        $this->assertEquals($expectedResult, $calculatedResult);
+    }
+
+    /**
+     * @param string $class
+     * @param string $expectedResult
+     *
+     * @dataProvider getEmptyDataProvider
+     */
+    public function testEmptyTableValidity($class, $expectedResult): void
+    {
+        /** @var AbstractCRC24 $crcClass */
+        $crcClass = new $class();
+        $calculatedResult = $crcClass->calculateWithTable('', $crcClass->populateTable());
+
+        $this->assertEquals($expectedResult, $calculatedResult);
     }
 
     /**

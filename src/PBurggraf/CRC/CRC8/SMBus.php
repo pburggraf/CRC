@@ -19,7 +19,5 @@ class SMBus extends AbstractCRC8
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x00;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

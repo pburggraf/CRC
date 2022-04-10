@@ -11,13 +11,11 @@ class Base91D extends AbstractCRC32
 {
     public function __construct()
     {
-        $this->poly = 0xa833982b;
-        $this->init = 0xffffffff;
+        $this->poly = 0xA833982B;
+        $this->init = 0xFFFFFFFF;
 
         $this->reverseIn = true;
         $this->reverseOut = true;
-        $this->xorOut = 0xffffffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        $this->xorOut = 0xFFFFFFFF;
     }
 }

@@ -17,7 +17,5 @@ class LteB extends AbstractCRC24
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x000000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

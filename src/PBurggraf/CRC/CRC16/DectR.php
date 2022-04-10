@@ -19,7 +19,5 @@ class DectR extends AbstractCRC16
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x0001;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }

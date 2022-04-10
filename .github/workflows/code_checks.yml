@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [ '7.3', '7.4', '8.0' ]
+        php: [ '7.4', '8.0', '8.1' ]
     name: PHP ${{ matrix.php }} tests
     steps:
       - uses: actions/checkout@v2
-      - uses: shivammathur/setup-php@v1
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
@@ -28,26 +28,26 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [ '7.3', '7.4', '8.0' ]
+        php: [ '7.4', '8.0', '8.1' ]
     name: PHP ${{ matrix.php }} code style
     steps:
       - uses: actions/checkout@v2
-      - uses: shivammathur/setup-php@v1
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
       - run: composer install --no-progress
-      - run: PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --diff-format=udiff --allow-risky=yes --config=.php_cs.dist
+      - run: PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --allow-risky=yes --config=.php-cs-fixer.dist.php
 
   phpstan:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [ '7.3', '7.4', '8.0' ]
+        php: [ '7.4', '8.0', '8.1' ]
     name: PHP ${{ matrix.php }} phpstan
     steps:
       - uses: actions/checkout@v2
-      - uses: shivammathur/setup-php@v1
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none

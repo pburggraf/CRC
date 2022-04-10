@@ -17,12 +17,10 @@ class Genibus extends AbstractCRC16
     public function __construct()
     {
         $this->poly = 0x1021;
-        $this->init = 0xffff;
+        $this->init = 0xFFFF;
 
         $this->reverseIn = false;
         $this->reverseOut = false;
-        $this->xorOut = 0xffff;
-
-        $this->lookupTable = $this->generateTable($this->poly);
+        $this->xorOut = 0xFFFF;
     }
 }

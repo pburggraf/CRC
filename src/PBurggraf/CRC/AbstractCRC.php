@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PBurggraf\CRC;
 
+use InvalidArgumentException;
 use function ord;
 use function strlen;
 
@@ -36,11 +37,6 @@ abstract class AbstractCRC
      * @var int
      */
     protected $xorOut;
-
-    /**
-     * @var int[]
-     */
-    protected $lookupTable;
 
     /**
      * @var int
@@ -85,42 +81,71 @@ abstract class AbstractCRC
         return $crc & $mask;
     }
 
+    public function calculateWithTable(string $buffer, array $table): int
+    {
+        $bufferLength = strlen($buffer);
+
+        if (count($table) !== 256) {
+            throw new InvalidArgumentException('CRC lookup table not populated');
+        }
+
+        $mask = (((1 << ($this->bitLength - 1)) - 1) << 1) | 1;
+        $highBit = 1 << ($this->bitLength - 1);
+
+        $crc = $this->init;
+
+        for ($iterator = 0; $iterator < $bufferLength; ++$iterator) {
+            $character = ord($buffer[$iterator]);
+            if ($this->reverseIn) {
+                $character = $this->binaryReverse($character, 8);
+            }
+
+            $tableValue = $table[(($crc >> ($this->bitLength - 8)) ^ $character) & 0xFF];
+
+            if (($this->bitLength - 8) !== 0) {
+                $tableValue ^= ($crc << 8);
+            }
+
+            $crc = $tableValue;
+            $crc &= $mask;
+        }
+
+        if ($this->reverseOut) {
+            $crc = $this->binaryReverse($crc, $this->bitLength);
+        }
+
+        $crc ^= $this->xorOut;
+
+        return $crc & $mask;
+    }
+
     /**
      * @return int[]
      */
-    protected function generateTable(int $polynomial): array
+    public function populateTable(): array
     {
         $tableSize = 256;
 
         $mask = (((1 << ($this->bitLength - 1)) - 1) << 1) | 1;
         $highBit = 1 << ($this->bitLength - 1);
 
-        $crctab = [];
+        $table = [];
 
-        for ($i = 0; $i < $tableSize; ++$i) {
-            $crc = $i;
-            if ($this->reverseIn) {
-                $crc = $this->binaryReverse($crc, 8);
-            }
-
-            $crc <<= $this->bitLength - 8;
-
+        for ($iterator = 0; $iterator < $tableSize; ++$iterator) {
+            $temp = 0;
+            $a = ($iterator << ($this->bitLength - 8));
             for ($j = 0; $j < 8; ++$j) {
-                $bit = $crc & $highBit;
-                $crc <<= 1;
-                if ($bit) {
-                    $crc ^= $polynomial;
+                if ((($temp ^ $a) & $highBit) !== 0) {
+                    $temp = (($temp << 1) ^ $this->poly);
+                } else {
+                    $temp <<= 1;
                 }
+                $a <<= 1;
             }
-
-            if ($this->reverseOut) {
-                $crc = $this->binaryReverse($crc, $this->bitLength);
-            }
-            $crc &= $mask;
-            $crctab[] = $crc;
+            $table[$iterator] = $temp & $mask;
         }
 
-        return $crctab;
+        return $table;
     }
 
     protected function binaryReverse(int $binaryInput, int $bitlen): int

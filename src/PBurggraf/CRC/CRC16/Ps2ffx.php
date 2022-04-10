@@ -7,13 +7,15 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  */
-class Ps2ff extends SpiFujitsu
+class Ps2ffx extends SpiFujitsu
 {
-    public function __construct()
+    public function populateTable(): array
     {
-        parent::__construct();
+        $table = parent::populateTable();
 
         // The lookup table of the final fantasy x savegame is broken for position 0xff
-        $this->lookupTable[0xff] = 0;
+        $table[0xFF] = 0;
+
+        return $table;
     }
 }

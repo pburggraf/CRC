@@ -11,13 +11,11 @@ class FlexrayB extends AbstractCRC24
 {
     public function __construct()
     {
-        $this->poly = 0x5d6dcb;
-        $this->init = 0xabcdef;
+        $this->poly = 0x5D6DCB;
+        $this->init = 0xABCDEF;
 
         $this->reverseIn = false;
         $this->reverseOut = false;
         $this->xorOut = 0x000000;
-
-        $this->lookupTable = $this->generateTable($this->poly);
     }
 }
