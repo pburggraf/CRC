@@ -9,35 +9,17 @@ namespace PBurggraf\CRC;
  */
 abstract class AbstractCRC
 {
-    /**
-     * @var int
-     */
-    protected $poly;
+    protected int $poly;
 
-    /**
-     * @var int
-     */
-    protected $init;
+    protected int $init;
 
-    /**
-     * @var bool
-     */
-    protected $reverseIn;
+    protected bool $reverseIn;
 
-    /**
-     * @var bool
-     */
-    protected $reverseOut;
+    protected bool $reverseOut;
 
-    /**
-     * @var int
-     */
-    protected $xorOut;
+    protected int $xorOut;
 
-    /**
-     * @var int
-     */
-    protected $bitLength;
+    protected int $bitLength;
 
     public function calculate(string $buffer): int
     {

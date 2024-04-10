@@ -11,5 +11,5 @@ use PBurggraf\CRC\AbstractCRC;
  */
 abstract class AbstractCRC16 extends AbstractCRC
 {
-    protected $bitLength = 16;
+    protected int $bitLength = 16;
 }
