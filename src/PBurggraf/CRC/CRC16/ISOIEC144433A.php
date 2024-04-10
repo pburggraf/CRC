@@ -7,8 +7,8 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\A
- * @see \PBurggraf\CRC\CRC16\CRCA
+ * @see A
+ * @see CRCA
  */
 class ISOIEC144433A extends AbstractCRC16
 {

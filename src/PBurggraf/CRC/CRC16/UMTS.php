@@ -7,8 +7,8 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\Buypass
- * @see \PBurggraf\CRC\CRC16\Verifone
+ * @see Buypass
+ * @see Verifone
  */
 class UMTS extends AbstractCRC16
 {

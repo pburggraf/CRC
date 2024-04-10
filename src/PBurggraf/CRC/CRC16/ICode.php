@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\Genibus
+ * @see Genibus
  */
 class ICode extends Genibus
 {

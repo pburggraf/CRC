@@ -7,10 +7,10 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\DArc
- * @see \PBurggraf\CRC\CRC16\EPC
- * @see \PBurggraf\CRC\CRC16\EPCC1G2
- * @see \PBurggraf\CRC\CRC16\ICode
+ * @see DArc
+ * @see EPC
+ * @see EPCC1G2
+ * @see ICode
  */
 class Genibus extends AbstractCRC16
 {

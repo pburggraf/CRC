@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\XCRC16
+ * @see XCRC16
  */
 class DectX extends AbstractCRC16
 {

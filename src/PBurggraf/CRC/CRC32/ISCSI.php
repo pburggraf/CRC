@@ -7,10 +7,10 @@ namespace PBurggraf\CRC\CRC32;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC32\Base91C
- * @see \PBurggraf\CRC\CRC32\C
- * @see \PBurggraf\CRC\CRC32\Castagnoli
- * @see \PBurggraf\CRC\CRC32\Interlaken
+ * @see Base91C
+ * @see C
+ * @see Castagnoli
+ * @see Interlaken
  */
 class ISCSI extends AbstractCRC32
 {

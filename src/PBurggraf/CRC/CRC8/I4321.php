@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC8;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC8\Itu
+ * @see Itu
  */
 class I4321 extends AbstractCRC8
 {

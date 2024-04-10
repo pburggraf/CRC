@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC24;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC24\OpenPGP
+ * @see OpenPGP
  */
 class CRC24 extends OpenPGP
 {

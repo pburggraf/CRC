@@ -7,10 +7,10 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\CRCB
- * @see \PBurggraf\CRC\CRC16\ISOHDLC
- * @see \PBurggraf\CRC\CRC16\ISOIEC144433B
- * @see \PBurggraf\CRC\CRC16\X25
+ * @see CRCB
+ * @see ISOHDLC
+ * @see ISOIEC144433B
+ * @see X25
  */
 class IBMSDLC extends AbstractCRC16
 {

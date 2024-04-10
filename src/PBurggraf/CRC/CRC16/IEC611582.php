@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\Profibus
+ * @see Profibus
  */
 class IEC611582 extends Profibus
 {

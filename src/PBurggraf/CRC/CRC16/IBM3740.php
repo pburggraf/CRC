@@ -7,8 +7,8 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\Autosar
- * @see \PBurggraf\CRC\CRC16\CcittFalse
+ * @see Autosar
+ * @see CcittFalse
  */
 class IBM3740 extends AbstractCRC16
 {

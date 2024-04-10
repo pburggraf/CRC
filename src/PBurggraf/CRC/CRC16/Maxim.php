@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\MaximDow
+ * @see MaximDow
  */
 class Maxim extends MaximDow
 {

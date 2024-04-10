@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC32;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC32\ISOHDLC
+ * @see ISOHDLC
  */
 class XZ extends ISOHDLC
 {

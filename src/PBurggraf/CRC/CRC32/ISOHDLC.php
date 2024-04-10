@@ -7,11 +7,11 @@ namespace PBurggraf\CRC\CRC32;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC32\ADCCP
- * @see \PBurggraf\CRC\CRC32\CRC32
- * @see \PBurggraf\CRC\CRC32\PKZip
- * @see \PBurggraf\CRC\CRC32\V42
- * @see \PBurggraf\CRC\CRC32\XZ
+ * @see ADCCP
+ * @see CRC32
+ * @see PKZip
+ * @see V42
+ * @see XZ
  */
 class ISOHDLC extends AbstractCRC32
 {

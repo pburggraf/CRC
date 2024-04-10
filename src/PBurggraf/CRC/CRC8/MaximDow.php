@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC8;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC8\Maxim
+ * @see Maxim
  */
 class MaximDow extends AbstractCRC8
 {

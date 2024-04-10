@@ -8,7 +8,7 @@ namespace PBurggraf\CRC\CRC32;
  * @author Philip Burggraf <philip@pburggraf.de>
  *
  * @deprecated
- * @see \PBurggraf\CRC\CRC32\Base91D
+ * @see Base91D
  */
 class D extends Base91D
 {

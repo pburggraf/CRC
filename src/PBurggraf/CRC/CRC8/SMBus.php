@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC8;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC8\CRC8
+ * @see CRC8
  */
 class SMBus extends AbstractCRC8
 {

@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC32;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC32\CRC32Q
+ * @see CRC32Q
  */
 class AIXM extends AbstractCRC32
 {

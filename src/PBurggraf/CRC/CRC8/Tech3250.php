@@ -7,8 +7,8 @@ namespace PBurggraf\CRC\CRC8;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC8\AES
- * @see \PBurggraf\CRC\CRC8\EBU
+ * @see AES
+ * @see EBU
  */
 class Tech3250 extends AbstractCRC8
 {

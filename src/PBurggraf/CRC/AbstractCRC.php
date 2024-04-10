@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace PBurggraf\CRC;
 
-use InvalidArgumentException;
-use function ord;
-use function strlen;
-
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  */
@@ -45,7 +41,7 @@ abstract class AbstractCRC
 
     public function calculate(string $buffer): int
     {
-        $bufferLength = strlen($buffer);
+        $bufferLength = \strlen($buffer);
 
         $mask = (((1 << ($this->bitLength - 1)) - 1) << 1) | 1;
         $highBit = 1 << ($this->bitLength - 1);
@@ -53,7 +49,7 @@ abstract class AbstractCRC
         $crc = $this->init;
 
         for ($iterator = 0; $iterator < $bufferLength; ++$iterator) {
-            $character = ord($buffer[$iterator]);
+            $character = \ord($buffer[$iterator]);
             if ($this->reverseIn) {
                 $character = $this->binaryReverse($character, 8);
             }
@@ -83,10 +79,10 @@ abstract class AbstractCRC
 
     public function calculateWithTable(string $buffer, array $table): int
     {
-        $bufferLength = strlen($buffer);
+        $bufferLength = \strlen($buffer);
 
         if (count($table) !== 256) {
-            throw new InvalidArgumentException('CRC lookup table not populated');
+            throw new \InvalidArgumentException('CRC lookup table not populated');
         }
 
         $mask = (((1 << ($this->bitLength - 1)) - 1) << 1) | 1;
@@ -95,7 +91,7 @@ abstract class AbstractCRC
         $crc = $this->init;
 
         for ($iterator = 0; $iterator < $bufferLength; ++$iterator) {
-            $character = ord($buffer[$iterator]);
+            $character = \ord($buffer[$iterator]);
             if ($this->reverseIn) {
                 $character = $this->binaryReverse($character, 8);
             }

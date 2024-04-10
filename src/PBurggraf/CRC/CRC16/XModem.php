@@ -7,10 +7,10 @@ namespace PBurggraf\CRC\CRC16;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC16\Acorn
- * @see \PBurggraf\CRC\CRC16\LTE
- * @see \PBurggraf\CRC\CRC16\V41MSB
- * @see \PBurggraf\CRC\CRC16\ZModem
+ * @see Acorn
+ * @see LTE
+ * @see V41MSB
+ * @see ZModem
  */
 class XModem extends AbstractCRC16
 {

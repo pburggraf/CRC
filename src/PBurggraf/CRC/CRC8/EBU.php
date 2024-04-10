@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC8;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC8\Tech3250
+ * @see Tech3250
  */
 class EBU extends Tech3250
 {

@@ -7,9 +7,9 @@ namespace PBurggraf\CRC\CRC32;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC32\AAL5
- * @see \PBurggraf\CRC\CRC32\BCRC32
- * @see \PBurggraf\CRC\CRC32\DectB
+ * @see AAL5
+ * @see BCRC32
+ * @see DectB
  */
 class Bzip2 extends AbstractCRC32
 {

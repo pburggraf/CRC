@@ -7,7 +7,7 @@ namespace PBurggraf\CRC\CRC32;
 /**
  * @author Philip Burggraf <philip@pburggraf.de>
  *
- * @see \PBurggraf\CRC\CRC32\Bzip2
+ * @see Bzip2
  */
 class AAL5 extends Bzip2
 {
