@@ -7,4 +7,6 @@ parameters:
     paths:
       - src
       - tests
-    checkMissingIterableValueType: false
+    ignoreErrors:
+      -
+        identifier: missingType.iterableValue
