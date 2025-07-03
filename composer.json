@@ -21,12 +21,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "PBurggraf\\CRC\\": "src/PBurggraf/CRC/"
+      "PBurggraf\\CRC\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "PBurggraf\\CRC\\Tests\\": "tests/PBurggraf/CRC/"
+      "PBurggraf\\CRC\\Tests\\": "tests/"
     }
   },
   "require": {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PBurggraf\CRC\Table;
+namespace PBurggraf\CRC\Tests\Table;
 
 use PBurggraf\CRC\CRC16\A;
 use PBurggraf\CRC\CRC16\AbstractCRC16;
