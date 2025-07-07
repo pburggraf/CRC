@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PBurggraf\CRC\Calulation;
+namespace PBurggraf\CRC\Tests\Calculation;
 
 use PBurggraf\CRC\CRC32\AAL5;
 use PBurggraf\CRC\CRC32\AbstractCRC32;
